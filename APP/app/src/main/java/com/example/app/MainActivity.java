@@ -14,6 +14,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     int max = 100;
+    int min = 1;
 
     public static final String EXTRA_MESSAGE = "com.example.Number-generator-app.MESSAGE";
     @Override
@@ -29,11 +30,14 @@ public class MainActivity extends AppCompatActivity {
 //        startActivity(intent);
 //        TextView editText = (TextView) findViewById(R.id.textView4);
 //        String message = editText.getText().toString();
-        TextView txt = (TextView) findViewById(R.id.t1);
-        String text = txt.getText().toString();
-        max = Integer.parseInt(text);
+        TextView txt1 = (TextView) findViewById(R.id.t1);
+        String text1 = txt1.getText().toString();
+        min = Integer.parseInt(text1);
+        TextView txt2 = (TextView) findViewById(R.id.t2);
+        String text2 = txt2.getText().toString();
+        max = Integer.parseInt(text2);
         Random rand = new Random();
-        int num = rand.nextInt(max);
+        int num = rand.nextInt(max + 1 - min) + min;
         String n = Integer.toString(num);
         TextView textView = (TextView)findViewById(R.id.textView4);
         textView.setText(n);
